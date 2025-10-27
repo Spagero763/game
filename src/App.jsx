@@ -57,7 +57,8 @@ function App() {
           placeholder='Enter you guess' 
           max={100} 
           min={1}
-          disabled={attempts === 3}/>
+          disabled={attempts === 3}
+          required/>
         <p className='text-xs'></p>
         <button 
           onClick={handleCheckGuess}
