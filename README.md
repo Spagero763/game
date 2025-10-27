@@ -58,14 +58,14 @@ Follow these steps to run the project locally:
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/Spagero763/guessing-game.git
-cd guessing-game
+git clone https://github.com/Spagero763/game.git
+cd game
 ```
 
 ### 2️⃣ Install Dependencies
 
 ```bash
-npm install
+npm install 
 ```
 
 ### 3️⃣ Run the App

@@ -14,10 +14,10 @@ function App() {
   }, []);
 
   const handleCheckGuess = () => {
-    if(attempts == 2 && guess != target){
+    if(attempts == 2 && guess != target){  
       alert(`Game Over! The correct number was ${target}.`);
       resetGame();
-      return;
+      return;  
     }
     if(guess == target){
       alert(`Congratulations! You've guessed the number ${target} correctly!`);
