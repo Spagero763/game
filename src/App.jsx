@@ -14,6 +14,9 @@ function App() {
   }, []);
 
   const handleCheckGuess = () => {
+    if(guess === '') {
+      return alert('Input box cant be empty');
+    }
     if(attempts == 2 && guess != target){  
       alert(`Game Over! The correct number was ${target}.`);
       resetGame();
