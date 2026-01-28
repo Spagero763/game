@@ -26,10 +26,10 @@ function App() {
       alert(`Congratulations! You've guessed the number ${target} correctly!`);
       resetGame();
     } else if (guess < target) {
-      alert('Lower! Try again.');
+      alert('Go higher! Try again.');
       setAttempts(attempts + 1);
     } else if (guess > target) {
-      alert('Higher! Try again.');
+      alert('Go lower! Try again.');
       setAttempts(attempts + 1);
     }
     setGuess('');
