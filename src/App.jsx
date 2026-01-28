@@ -80,7 +80,8 @@ function App() {
         <p className='text-xs'></p>
         <button 
           onClick={handleCheckGuess}
-          className='mx-auto px-6 py-2 font-bold rounded-2xl bg-blue-500'>Submit</button>
+          disabled={attempts >= maxAttempts}
+          className='mx-auto px-6 py-2 font-bold rounded-2xl bg-blue-500 text-white hover:bg-blue-600 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed'>Submit</button>
       </div>
     </div>
   )
