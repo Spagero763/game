@@ -61,7 +61,8 @@ function App() {
         <h2 className='font-bold text-3xl text-blue-500 flex items-center gap-2'>
           <Gamepad size={40} /> Guessing Game <Gamepad size={40} />
         </h2>
-        <p className='text-4xl'>{attempts} / {maxAttempts}</p>
+        <p className='text-4xl font-semibold'>{attempts} / {maxAttempts}</p>
+        <p className='text-sm text-gray-500'>{maxAttempts - attempts} attempts remaining</p>
         <label htmlFor="guess">
           <p>Enter your Guess </p>
         </label>
