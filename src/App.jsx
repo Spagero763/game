@@ -5,13 +5,21 @@ import './App.css'
 function App() {
   const [attempts, setAttempts] = useState(0);
   const [guess, setGuess] = useState('');
-  const maxAttempts = 3;
+  const [difficulty, setDifficulty] = useState('medium');
   const [target, setTarget] = useState(null);
 
+  const difficultySettings = {
+    easy: { maxAttempts: 5, range: 50 },
+    medium: { maxAttempts: 3, range: 100 },
+    hard: { maxAttempts: 2, range: 100 }
+  };
+
+  const { maxAttempts, range } = difficultySettings[difficulty];
+
   useEffect(() => {
-    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    const randomNumber = Math.floor(Math.random() * range) + 1;
     setTarget(randomNumber);
-  }, []);
+  }, [range]);
 
   const handleCheckGuess = () => {
     const numGuess = parseInt(guess, 10);
@@ -20,8 +28,8 @@ function App() {
       return alert('Please enter a valid number');
     }
     
-    if(numGuess < 1 || numGuess > 100) {
-      return alert('Number must be between 1 and 100');
+    if(numGuess < 1 || numGuess > range) {
+      return alert(`Number must be between 1 and ${range}`);
     }
     
     if(attempts == 2 && numGuess != target){  
@@ -45,8 +53,14 @@ function App() {
   const resetGame = () => {
     setAttempts(0);
     setGuess('');
-    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    const randomNumber = Math.floor(Math.random() * range) + 1;
     setTarget(randomNumber);
+  }
+
+  const handleDifficultyChange = (newDifficulty) => {
+    setDifficulty(newDifficulty);
+    setAttempts(0);
+    setGuess('');
   }
 
   const handleKeyPress = (e) => {
@@ -61,6 +75,22 @@ function App() {
         <h2 className='font-bold text-3xl text-blue-500 flex items-center gap-2'>
           <Gamepad size={40} /> Guessing Game <Gamepad size={40} />
         </h2>
+        <div className='flex gap-2 text-sm'>
+          {['easy', 'medium', 'hard'].map((level) => (
+            <button
+              key={level}
+              onClick={() => handleDifficultyChange(level)}
+              className={`px-3 py-1 rounded-full capitalize ${
+                difficulty === level 
+                  ? 'bg-blue-500 text-white' 
+                  : 'bg-gray-200 hover:bg-gray-300'
+              }`}
+            >
+              {level}
+            </button>
+          ))}
+        </div>
+        <p className='text-xs text-gray-400'>Range: 1-{range}</p>
         <p className='text-4xl font-semibold'>{attempts} / {maxAttempts}</p>
         <p className='text-sm text-gray-500'>{maxAttempts - attempts} attempts remaining</p>
         <label htmlFor="guess">
@@ -72,8 +102,8 @@ function App() {
           value={guess} 
           onChange={(e) => setGuess(e.target.value)}
           onKeyPress={handleKeyPress}
-          placeholder='1-100' 
-          max={100} 
+          placeholder={`1-${range}`} 
+          max={range} 
           min={1}
           disabled={attempts === 3}
           required/>
