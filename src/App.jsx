@@ -47,6 +47,12 @@ function App() {
     setGuess('');
     const randomNumber = Math.floor(Math.random() * 100) + 1;
     setTarget(randomNumber);
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleCheckGuess();
+    }
   } 
 
   return (
@@ -63,7 +69,8 @@ function App() {
           className='border-2 border-black px-5 py-2 rounded-lg'
           type="number" 
           value={guess} 
-          onChange={(e) => setGuess(e.target.value)} 
+          onChange={(e) => setGuess(e.target.value)}
+          onKeyPress={handleKeyPress}
           placeholder='1-100' 
           max={100} 
           min={1}
