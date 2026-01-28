@@ -1,16 +1,22 @@
 # Guessing Game
 
 A simple and interactive **number guessing game** built with **React** and **Lucide Icons**.
-Players have **3 attempts** to guess a randomly generated number between **1 and 100**.
+Choose your difficulty and try to guess the secret number!
 
 ---
 
 ## Features
 
-* Random number generation between **1–100**
-* Limited to **3 attempts** per game
-* Instant feedback (Higher / Lower / Correct)
+* **3 Difficulty Levels**:
+  - Easy: 5 attempts, range 1-50
+  - Medium: 3 attempts, range 1-100
+  - Hard: 2 attempts, range 1-100
+* Random number generation based on difficulty
+* Instant feedback (Go Higher / Go Lower / Correct)
+* Press Enter to submit your guess
+* New Game button to restart anytime
 * Automatic reset after game over or correct guess
+* Input validation with helpful error messages
 * Styled using **Tailwind CSS**
 * Fun gamepad icons from **Lucide React**
 
@@ -18,11 +24,12 @@ Players have **3 attempts** to guess a randomly generated number between **1 and
 
 ## How to Play
 
-1. Enter a number between **1 and 100** in the input box.
-2. Click **Submit** to check your guess.
-3. The game will tell you whether the correct number is **higher** or **lower**.
-4. You have **3 attempts** to guess correctly.
-5. If you guess the number or run out of attempts, the game resets automatically.
+1. Select a difficulty level (Easy, Medium, or Hard)
+2. Enter a number in the input box
+3. Press **Submit** or hit **Enter** to check your guess
+4. The game will tell you whether to go **higher** or **lower**
+5. Try to guess the number before running out of attempts!
+6. Click **New Game** to start over at any time
 
 ---
 
