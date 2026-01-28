@@ -82,6 +82,11 @@ function App() {
           onClick={handleCheckGuess}
           disabled={attempts >= maxAttempts}
           className='mx-auto px-6 py-2 font-bold rounded-2xl bg-blue-500 text-white hover:bg-blue-600 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed'>Submit</button>
+        <button 
+          onClick={resetGame}
+          className='mx-auto px-4 py-1 text-sm rounded-xl border border-blue-500 text-blue-500 hover:bg-blue-50 transition-colors'>
+          New Game
+        </button>
       </div>
     </div>
   )
