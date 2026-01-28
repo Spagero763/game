@@ -54,10 +54,10 @@ function App() {
         </label>
         <input 
           className='border-2 border-black px-5 py-2 rounded-lg'
-          type="text" 
+          type="number" 
           value={guess} 
           onChange={(e) => setGuess(e.target.value)} 
-          placeholder='Enter you guess' 
+          placeholder='1-100' 
           max={100} 
           min={1}
           disabled={attempts === 3}
