@@ -14,21 +14,28 @@ function App() {
   }, []);
 
   const handleCheckGuess = () => {
-    if(guess === '') {
-      return alert('Input box cant be empty');
+    const numGuess = parseInt(guess, 10);
+    
+    if(guess === '' || isNaN(numGuess)) {
+      return alert('Please enter a valid number');
     }
-    if(attempts == 2 && guess != target){  
+    
+    if(numGuess < 1 || numGuess > 100) {
+      return alert('Number must be between 1 and 100');
+    }
+    
+    if(attempts == 2 && numGuess != target){  
       alert(`Game Over! The correct number was ${target}.`);
       resetGame();
       return;  
     }
-    if(guess == target){
+    if(numGuess == target){
       alert(`Congratulations! You've guessed the number ${target} correctly!`);
       resetGame();
-    } else if (guess < target) {
+    } else if (numGuess < target) {
       alert('Go higher! Try again.');
       setAttempts(attempts + 1);
-    } else if (guess > target) {
+    } else if (numGuess > target) {
       alert('Go lower! Try again.');
       setAttempts(attempts + 1);
     }
